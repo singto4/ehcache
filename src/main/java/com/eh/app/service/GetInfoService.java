@@ -9,20 +9,20 @@ import org.springframework.stereotype.Service;
 public class GetInfoService {
 	
 	@Cacheable(value = "infoCache", key = "#id")
-    public String getDataById(String id) {
+    	public String getDataById(String id) {
 		System.out.println("Get data ID " + id + " from DB");
-        return "Data for ID: " + id + ", Message : oldMessage";
-    }
+        	return "Data for ID: " + id + ", Message : oldMessage";
+    	}
 	
 	@CachePut(value = "infoCache", key = "#id")
-    public String updateDataById(String id, String msg) {
+    	public String updateDataById(String id, String msg) {
 		System.out.println("Update data ID " + id);
-        return "Data Data for ID: " + id + ", Message : " + msg;
-    }
+        	return "Data Data for ID: " + id + ", Message : " + msg;
+    	}
 
-    @CacheEvict(value = "infoCache", key = "#id")
-    public void clearCacheById(String id) {
-        System.out.println("Clear Cache for ID: " + id);
-    }
+    	@CacheEvict(value = "infoCache", key = "#id")
+    	public void clearCacheById(String id) {
+        	System.out.println("Clear Cache for ID: " + id);
+    	}
 
 }
